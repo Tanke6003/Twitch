@@ -7,6 +7,7 @@ from tkinter import ttk
 from tkinter import messagebox
 import os
 import shutil
+import webbrowser
 #Functions
 
 def SelectFolder():
@@ -45,7 +46,8 @@ def OrganizeFiles():
     return
 
 
-
+def openGitHub():
+    webbrowser.open("https://github.com/Tanke6003/Twitch")
 
 #Create a window with Tkinter
 root = tk.Tk()
@@ -68,4 +70,8 @@ startFrame = tk.Frame(mainFrame)
 startFrame.pack(fill="x")
 startButton = tk.Button(startFrame,text="Run",cursor="hand2",state="disabled",disabledforeground="#ff0000",command=lambda:OrganizeFiles())
 startButton.pack()
+footerFrame = tk.Frame(mainFrame)
+footerFrame.pack(side="bottom",fill="x",pady=10)
+footerButton = tk.Button(footerFrame,text="GitHub Repo",command=lambda:openGitHub())
+footerButton.pack()
 root.mainloop()
